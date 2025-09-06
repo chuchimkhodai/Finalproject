@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA Account</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="emerald-theme">
+    <div class="container">
+        <div class="ea-logo-container">
+            <img src="Electronic-Arts-Logo.png" alt="EA Logo"
+                class="ea-logo">
+        </div>
+
+        <!-- Page 1: Basic Info -->
+        <div id="basicInfo" class="form-container active">
+            <h1>Create your EA Account</h1>
+            <p class="subtitle">Use one of your existing accounts below, or start from the beginning.</p>
+
+            <hr>
+
+            <div class="form-section">
+                <h2>COUNTRY/REGION</h2>
+                <div class="form-row">
+                    <select id="country">
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="USA">United States</option>
+                        <option value="UK">United Kingdom</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>DATE OF BIRTH</h2>
+                <div class="dob-fields">
+                    <select id="month">
+                        <option value="">Month</option>
+                    </select>
+                    <select id="day">
+                        <option value="">Day</option>
+                    </select>
+                    <select id="year">
+                        <option value="">Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="basicInfoNextBtn" class="next-button">NEXT</button>
+
+            <div class="links">
+                <a href="#" id="switchToSignIn">Already have an account? Sign in</a>
+                <a href="#">Do you want to create an EA account for your child?</a>
+            </div>
+
+            <div class="social-buttons">
+                <div class="social-button facebook">
+                    <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
+                </div>
+                <div class="social-button youtube">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+                </div>
+                <div class="social-button twitter">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+                </div>
+                <div class="social-button instagram">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                </div>
+            </div>
+        </div>
+
+        <div id="accountDetails" class="form-container">
+            <button class="back-button" id="backToBasicInfo">
+                < BACK</button>
+                    <h1>Create your EA Account</h1>
+
+                    <div class="form-section">
+                        <h2>EMAIL ADDRESS</h2>
+                        <div class="form-row">
+                            <input type="email" id="email" placeholder="Enter your email address">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>EA ID</h2>
+                        <div class="form-row">
+                            <input type="text" id="eaId" placeholder="Enter your EA ID">
+                        </div>
+                        <p class="form-hint">This is how your friends can find you in the EA app or in EA games. Your EA
+                            ID must be 4-16 characters long.</p>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>PASSWORD</h2>
+                        <div class="form-row">
+                            <input type="password" id="password" placeholder="Enter your password">
+                        </div>
+                    </div>
+
+                    <button id="createAccountBtn" class="next-button">NEXT</button>
+        </div>
+
+        <div id="signIn" class="form-container">
+            <h1>Sign in to your EA Account</h1>
+
+            <div class="form-section">
+                <h2>PHONE OR EMAIL</h2>
+                <div class="form-row">
+                    <input type="text" id="loginId" placeholder="Enter your phone or email">
+                </div>
+                <div class="form-row remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember me</label>
+                </div>
+            </div>
+
+            <button id="signInNextBtn" class="next-button">NEXT</button>
+
+            <div class="links">
+                <a href="#">Forgot your password or need to create a new one?</a>
+                <a href="#" id="switchToCreate">CREATE ACCOUNT</a>
+            </div>
+
+            <div class="social-buttons">
+                <div class="social-button facebook">
+                    <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
+                </div>
+                <div class="social-button youtube">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+                </div>
+                <div class="social-button twitter">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+                </div>
+                <div class="social-button instagram">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                </div>
+            </div>
+
+            <div class="social-login">
+                <div class="divider">or</div>
+                <button class="social-btn facebook">
+                    <i class="fab fa-facebook-f"></i> Continue with Facebook
+                </button>
+                <button class="social-btn google">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button class="social-btn apple">
+                    <i class="fab fa-apple"></i> Continue with Apple
+                </button>
+            </div>
+
+            <div class="create-account">
+                <span>Don't have an account?</span>
+                <a href="#">CREATE ACCOUNT</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts1.js"></script>
+</body>
+
+</html>

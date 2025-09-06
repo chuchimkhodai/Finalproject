@@ -1,0 +1,295 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'EA Sports Text', Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Header Container */
+.header-container {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 12px 12px 0 0;
+}
+
+/* Logo Section */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 30px;
+    margin-right: 30px;
+    border-radius: 4px;
+}
+
+/* Main Navigation */
+.main-nav {
+    display: flex;
+    flex-grow: 1;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    position: relative;
+    margin-right: 25px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+    font-family: 'EA Sports Text', 'Inter', sans-serif;
+}
+
+.nav-link:hover {
+    color: #00ff85;
+}
+
+/* Dropdown Indicator */
+.has-dropdown::after {
+    content: '▼';
+    font-size: 8px;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000;
+    min-width: 220px;
+    padding: 15px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    border-top: 2px solid #00ff85;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 12px 12px;
+}
+
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-item:hover .has-dropdown::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-item {
+    padding: 8px 20px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 6px;
+    margin: 0 10px;
+}
+
+.dropdown-item:hover {
+    color: #00ff85;
+    background-color: rgba(0, 255, 133, 0.1);
+}
+
+/* Emerald Green Hover Effect */
+.dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: #00ff85;
+    transition: width 0.3s ease;
+    z-index: -1;
+    border-radius: 6px;
+}
+
+.dropdown-item:hover::before {
+    width: 3px;
+}
+
+/* Special Dropdown Items */
+.dropdown-highlight {
+    font-weight: bold;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+}
+
+/* User Actions */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sign-in {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'EA Sports Text', 'Inter', sans-serif;
+}
+
+.sign-in:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pre-order-container {
+    position: relative;
+}
+
+.pre-order {
+    background-color: #00ff85;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'EA Sports Text', 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pre-order:hover {
+    background-color: #00e077;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 133, 0.3);
+}
+
+.pre-order::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.pre-order:hover::after {
+    transform: translateX(100%);
+}
+
+/* Platform Dropdown */
+.platform-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #000;
+    width: 280px;
+    padding: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    border-top: 2px solid #00ff85;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 12px 12px;
+}
+
+.pre-order-container:hover .platform-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.platform-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.platform-item:hover {
+    background-color: rgba(0, 255, 133, 0.1);
+    color: #00ff85;
+}
+
+.platform-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.platform-name {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.dropdown-title {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Chevron for pre-order */
+.pre-order::before {
+    content: '▼';
+    font-size: 8px;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    color: #000;
+}
+
+.pre-order-container:hover .pre-order::before {
+    transform: rotate(180deg);
+}

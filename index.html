@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA SPORTS FC™ 26 - Trang chính thức</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'EA Sports Text', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            border-radius: 12px;
+            overflow-x: hidden;
+        }
+        
+        /* Header Container */
+        .header-container {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Logo Section */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 30px;
+            margin-right: 30px;
+            border-radius: 4px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-right: 25px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+            font-family: 'EA Sports Text', 'Inter', sans-serif;
+        }
+
+        .nav-link:hover {
+            color: #00ff85;
+        }
+
+        /* Dropdown Indicator */
+        .has-dropdown::after {
+            content: '▼';
+            font-size: 8px;
+            margin-left: 5px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        /* Dropdown Menus */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #000;
+            min-width: 220px;
+            padding: 15px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border-top: 2px solid #00ff85;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 12px 12px;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-item:hover .has-dropdown::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-item {
+            padding: 8px 20px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 6px;
+            margin: 0 10px;
+        }
+
+        .dropdown-item:hover {
+            color: #00ff85;
+            background-color: rgba(0, 255, 133, 0.1);
+        }
+
+        /* Emerald Green Hover Effect */
+        .dropdown-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background-color: #00ff85;
+            transition: width 0.3s ease;
+            z-index: -1;
+            border-radius: 6px;
+        }
+
+        .dropdown-item:hover::before {
+            width: 3px;
+        }
+
+        /* Special Dropdown Items */
+        .dropdown-highlight {
+            font-weight: bold;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #333;
+        }
+
+        /* User Actions */
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-icon {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .user-icon:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #00ff85;
+            border-color: #00ff85;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #000;
+            width: 200px;
+            padding: 15px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border-top: 2px solid #00ff85;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 12px 12px;
+            margin-top: 10px;
+        }
+
+        .user-icon:hover .user-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .user-dropdown-item {
+            padding: 10px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .user-dropdown-item:hover {
+            color: #00ff85;
+            background-color: rgba(0, 255, 133, 0.1);
+        }
+
+        .pre-order-container {
+            position: relative;
+        }
+
+        .pre-order {
+            background-color: #00ff85;
+            color: #000;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'EA Sports Text', 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pre-order:hover {
+            background-color: #00e077;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 133, 0.3);
+        }
+
+        .pre-order::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .pre-order:hover::after {
+            transform: translateX(100%);
+        }
+
+        /* Platform Dropdown */
+        .platform-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #000;
+            width: 280px;
+            padding: 15px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border-top: 2px solid #00ff85;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 12px 12px;
+        }
+
+        .pre-order-container:hover .platform-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .platform-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+
+        .platform-item:hover {
+            background-color: rgba(0, 255, 133, 0.1);
+            color: #00ff85;
+        }
+
+        .platform-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            object-fit: contain;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .platform-name {
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .dropdown-title {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 10px;
+            padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Chevron for pre-order */
+        .pre-order::before {
+            content: '▼';
+            font-size: 8px;
+            margin-left: 5px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+            color: #000;
+        }
+
+        .pre-order-container:hover .pre-order::before {
+            transform: rotate(180deg);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #001a0d 0%, #000 100%);
+            padding: 100px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 20%, rgba(0, 255, 133, 0.1) 0%, transparent 40%);
+        }
+
+        .hero-title {
+            font-size: 62px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, #00ff85, #05c3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: #00ff85;
+        }
+
+        .hero-description {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Preorder Benefits */
+        .preorder-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 32px;
+            background-color: #0a0a0a;
+        }
+
+        .benefit-card {
+            background-color: #111;
+            border-radius: 12px;
+            padding: 30px 24px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff85, #05c3ff);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 133, 0.2);
+            border-color: #00ff85;
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #00ff85;
+        }
+
+        .benefit-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .benefit-description {
+            color: #aaa;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 32px;
+            background-color: #0a0a0a;
+            text-align: center;
+            position: relative;
+        }
+
+        .features-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ff85, transparent);
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: #00ff85;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-text {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        /* News Section */
+        .news-section {
+            padding: 80px 32px;
+            background-color: #111;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-card {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #222;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 133, 0.2);
+            border-color: #00ff85;
+        }
+
+        .news-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #001a0d, #003317);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff85;
+            font-size: 24px;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .news-meta {
+            color: #00ff85;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .news-excerpt {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Slider Section */
+        .slider-section {
+            padding: 80px 32px;
+            background-color: #0a0a0a;
+        }
+
+        .slider-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #00ff85;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .slider-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #222;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #001a0d 0%, #000 100%);
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #001a0d, #003317);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.7) 100%);
+        }
+
+        .slide-image-placeholder {
+            font-size: 64px;
+            color: #00ff85;
+            z-index: 2;
+        }
+
+        .slide-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #00ff85;
+            text-transform: uppercase;
+        }
+
+        .slide-content {
+            max-width: 800px;
+            margin-bottom: 24px;
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .slide-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .slide-feature {
+            background-color: rgba(0, 255, 133, 0.1);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #00ff85;
+            border: 1px solid rgba(0, 255, 133, 0.3);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #2a2a2a;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slider-dot.active {
+            background-color: #00ff85;
+            transform: scale(1.2);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            transition: background-color 0.3s;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .slider-arrow:hover {
+            background-color: rgba(0, 255, 133, 0.2);
+            color: #00ff85;
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        /* Ultimate Edition */
+        .ultimate-edition {
+            padding: 80px 32px;
+            background: linear-gradient(135deg, #001a1f 0%, #000 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .ultimate-edition::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(0, 255, 133, 0.1) 0%, transparent 40%);
+        }
+
+        .edition-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .edition-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #00ff85;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .edition-description {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* New Pre-order Section with Image */
+        .preorder-section {
+            padding: 80px 32px;
+            background-color: #0a0a0a;
+            position: relative;
+        }
+
+        .preorder-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .preorder-image {
+            flex: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .preorder-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .preorder-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .preorder-content {
+            flex: 1;
+            text-align: right;
+            padding: 20px;
+        }
+
+        .preorder-heading {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #00ff85;
+            text-transform: uppercase;
+        }
+
+        .preorder-text {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .preorder-button {
+            display: inline-block;
+            background-color: #00ff85;
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .preorder-button:hover {
+            background-color: #00e077;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 133, 0.3);
+        }
+
+        /* Policy Section */
+        .policy-section {
+            padding: 60px 32px;
+            background-color: #0a0a0a;
+            border-top: 1px solid #222;
+        }
+
+        .policy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .policy-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #00ff85;
+            text-align: center;
+        }
+
+        .policy-content {
+            background-color: #111;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #222;
+        }
+
+        .policy-text {
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .policy-highlight {
+            color: #00ff85;
+            font-weight: 600;
+        }
+
+        .policy-list {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .policy-list li {
+            margin-bottom: 10px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .policy-note {
+            background-color: rgba(0, 255, 133, 0.05);
+            border-left: 4px solid #00ff85;
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .policy-note p {
+            margin: 0;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .policy-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ff85, transparent);
+            margin: 30px 0;
+        }
+
+        /* Social Media Section */
+        .social-section {
+            padding: 40px 32px;
+            background-color: #111;
+            text-align: center;
+        }
+
+        .social-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #00ff85;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #001a0d, #003317);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid #222;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #00ff85, #05c3ff);
+            color: #000;
+            box-shadow: 0 5px 15px rgba(0, 255, 133, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            padding: 40px 32px 30px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #00ff85;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        /* NEW: Pre-order with Image Section */
+        .preorder-image-section {
+            padding: 80px 32px;
+            background-color: #0a0a0a;
+        }
+
+        .preorder-image-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .preorder-image-left {
+            flex: 1;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .preorder-image-left img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-overlay-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .coming-soon {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #00ff85;
+            text-transform: uppercase;
+        }
+
+        .release-date {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .available-on {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .app-badge {
+            background-color: #00ff85;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .preorder-content-right {
+            flex: 1;
+            text-align: left;
+        }
+
+        .preorder-title-right {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00ff85, #05c3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .preorder-subtitle-right {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #00ff85;
+        }
+
+        .preorder-description-right {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            .nav-list {
+                gap: 15px;
+            }
+            
+            .nav-item {
+                margin-right: 15px;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .hero-subtitle {
+                font-size: 26px;
+            }
+            
+            .preorder-container {
+                gap: 40px;
+            }
+            
+            .preorder-image-container {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 16px;
+                padding: 15px 20px;
+            }
+            
+            .nav-list {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .nav-item {
+                margin-right: 10px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 22px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .slide-image {
+                height: 200px;
+            }
+            
+            .slide-title {
+                font-size: 24px;
+            }
+            
+            .preorder-benefits {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title, .slider-title, .edition-title {
+                font-size: 32px;
+            }
+            
+            .user-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .policy-section {
+                padding: 40px 20px;
+            }
+            
+            .policy-content {
+                padding: 20px;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+            
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .preorder-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .preorder-content {
+                text-align: center;
+            }
+            
+            .preorder-heading {
+                font-size: 28px;
+            }
+            
+            .preorder-image-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .preorder-content-right {
+                text-align: center;
+            }
+            
+            .preorder-title-right {
+                font-size: 32px;
+            }
+            
+            .preorder-subtitle-right {
+                font-size: 20px;
+            }
+            
+            .coming-soon {
+                font-size: 24px;
+            }
+            
+            .release-date {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 20px;
+            }
+            
+            .pre-order {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            
+            .section-title, .slider-title, .edition-title {
+                font-size: 28px;
+            }
+            
+            .benefit-card {
+                padding: 20px 15px;
+            }
+            
+            .benefit-title {
+                font-size: 20px;
+            }
+            
+            .policy-title {
+                font-size: 24px;
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .preorder-heading {
+                font-size: 24px;
+            }
+            
+            .preorder-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            .preorder-title-right {
+                font-size: 28px;
+            }
+            
+            .preorder-subtitle-right {
+                font-size: 18px;
+            }
+            
+            .coming-soon {
+                font-size: 20px;
+            }
+            
+            .release-date {
+                font-size: 18px;
+            }
+            
+            .available-on {
+                font-size: 16px;
+            }
+            
+            .app-badge {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-container">
+        <div class="logo">
+            <img src="images (4).jpg" alt="EA Sports Logo">
+        </div>
+        
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Giới thiệu</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Tính chân thực không đối thủ</a>
+                        <a href="#" class="dropdown-item">Quyền lợi kép</a>
+                        <a href="#" class="dropdown-item dropdown-highlight">Thành viên EA Play</a>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Tính năng</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Chế độ chơi</a>
+                        <a href="#" class="dropdown-item">Sự nghiệp cầu thủ</a>
+                        <a href="#" class="dropdown-item">Sự nghiệp HLV</a>
+                        <a href="#" class="dropdown-item dropdown-highlight">Đội Hình Tuyệt Hảo</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Tin tức</a>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Cộng đồng</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Trợ giúp EA</a>
+                        <a href="#" class="dropdown-item">Answers HQ</a>
+                        <a href="#" class="dropdown-item">Diễn đàn EA</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Phản hồi FC</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="user-actions">
+            <div class="user-icon">
+                <i class="fas fa-user"></i>
+                <div class="user-dropdown">
+                    <a href="#" class="user-dropdown-item">Đăng nhập</a>
+                    <a href="#" class="user-dropdown-item">Tạo tài khoản</a>
+                    <a href="#" class="user-dropdown-item">Cài đặt tài khoản</a>
+                    <a href="#" class="user-dropdown-item">Trợ giúp</a>
+                </div>
+            </div>
+            <div class="pre-order-container">
+                <button class="pre-order">Đặt Trước Ngay*</button>
+                <div class="platform-dropdown">
+                    <div class="dropdown-title">Nền tảng khả dụng</div>
+                    <a href="#" class="platform-item">
+                        <img src="Electronic-Arts-Logo.svg.png" alt="EA App" class="platform-icon">
+                        <span class="platform-name">EA app cho Windows</span>
+                    </a>
+                    <a href="#" class="platform-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Xbox_one_logo.svg/240px-Xbox_one_logo.svg.png" alt="Xbox" class="platform-icon">
+                        <span class="platform-name">Xbox</span>
+                    </a>
+                    <a href="#" class="platform-item">
+                        <img src="transparent-hd-playstation-white-logo-701751694774458ddkx7agt7y.png" alt="PlayStation" class="platform-icon">
+                        <span class="platform-name">PlayStation®</span>
+                    </a>
+                    <a href="#" class="platform-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/240px-Steam_icon_logo.svg.png" alt="Steam" class="platform-icon">
+                        <span class="platform-name">Steam</span>
+                    </a>
+                    <a href="#" class="platform-item">
+                        <img src="epic-games.png" alt="Epic Games" class="platform-icon">
+                        <span class="platform-name">Epic Games</span>
+                    </a>
+                    <a href="#" class="platform-item">
+                        <img src="Amazon_Luna_logo.svg.png" alt="Luna" class="platform-icon">
+                        <span class="platform-name">Luna</span>
+                    </a>
+                    <a href="#" class="platform-item">
+                        <img src="Nintendo_Switch_logo.svg.png" alt="Nintendo Switch" class="platform-icon">
+                        <span class="platform-name">Nintendo Switch</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NEW: Pre-order with Image Section -->
+    <section class="preorder-image-section">
+        <div class="preorder-image-container">
+            <div class="preorder-image-left">
+                <img src="Screenshot 2025-08-09 203449.png" alt="EA SPORTS FC 26">
+                <div class="image-overlay-content">
+                    <div class="coming-soon">Coming Soon</div>
+                    <div class="release-date">Sep 26, 2025</div>
+                    <div class="available-on">Available on</div>
+                    <div class="app-badge">EA app</div>
+                </div>
+            </div>
+            <div class="preorder-content-right">
+                <h2 class="preorder-title-right">EA SPORTS FC™ 26</h2>
+                <h3 class="preorder-subtitle-right">ĐẶT HÀNG TRƯỚC BẢN ULTIMATE EDITION</h3>
+                <p class="preorder-description-right">
+                    Nhận tối đa 7 ngày chơi sớm, Điểm FC và nhiều hơn thế khi đặt trước EA SPORTS FC™ 26 Ultimate Edition.
+                </p>
+                <button class="pre-order">Đặt Trước Ngay</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="preorder-benefits">
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3 class="benefit-title">Truy cập sớm tối đa 7 ngày</h3>
+            <p class="benefit-description">Chơi EA SPORTS FC™ 26 sớm hơn tới 7 ngày so với ngày phát hành chính thức.</p>
+        </div>
+        
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="fas fa-ticket-alt"></i>
+            </div>
+            <h3 class="benefit-title">4600 Điểm FC</h3>
+            <p class="benefit-description">Nhận 4600 Điểm FC để sử dụng trong Đội Hình Tuyệt Hảo và các chế độ khác.</p>
+        </div>
+        
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3 class="benefit-title">Vị trí Nâng cấp Cầu thủ</h3>
+            <p class="benefit-description">Nhận một Vị trí Nâng cấp Cầu thủ Đội Hình Tuyệt Hảo độc quyền để sử dụng trong EA SPORTS FC™ 26.</p>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 class="section-title">Tính năng</h2>
+        <div class="feature-content">
+            <p class="feature-text">
+                Lối chơi được cải tiến, được hỗ trợ bởi phản hồi từ cộng đồng. Chúng tôi phát triển các tính năng dựa trên phản hồi định kỳ từ cộng đồng game thủ toàn cầu. Mọi cải tiến đều được thiết kế để nâng cao trải nghiệm chơi game.
+            </p>
+            <button class="pre-order">Khám phá Tính năng</button>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <h2 class="section-title">Tin tức mới nhất</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">The Pitch Notes</h3>
+                    <div class="news-meta">CAREER DEEP DIVE</div>
+                    <p class="news-excerpt">Khám phá những cải tiến mới trong chế độ Sự nghiệp của EA SPORTS FC™ 26.</p>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">
+                    <i class="fas fa-list"></i>
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">Danh sách cầu thủ</h3>
+                    <div class="news-meta">CẬP NHẬT MỚI</div>
+                    <p class="news-excerpt">Xem danh sách đầy đủ các cầu thủ trong EA SPORTS FC™ 26 với các chỉ số được cập nhật.</p>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">Giải đấu mới</h3>
+                    <div class="news-meta">QATAR AIRWAYS</div>
+                    <p class="news-excerpt">Khám phá giải đấu mới và các đối tác mới trong EA SPORTS FC™ 26.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slider-section">
+        <h2 class="slider-title">KHÁM PHÁ TÍNH NĂNG NỔI BẬT</h2>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <div class="slide-image">
+                        <div class="slide-image-placeholder">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                    </div>
+                    <h3 class="slide-title">LỐI CHƠI MỚI ĐỘT PHÁ</h3>
+                    <p class="slide-content">
+                        Trải nghiệm lối chơi chân thực nhất từ trước đến nay với công nghệ HyperMotionV, 
+                        cải tiến AI và hệ thống animation hoàn toàn mới. Kiểm soát trận đấu theo cách của bạn.
+                    </p>
+                    <div class="slide-features">
+                        <span class="slide-feature">Công nghệ HyperMotionV</span>
+                        <span class="slide-feature">AI thông minh hơn</span>
+                        <span class="slide-feature">Animation chân thực</span>
+                    </div>
+                    <button class="pre-order">Khám phá ngay</button>
+                </div>
+                
+                <div class="slide">
+                    <div class="slide-image">
+                        <div class="slide-image-placeholder">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <h3 class="slide-title">ULTIMATE TEAM™</h3>
+                    <p class="slide-content">
+                        Xây dựng đội hình mơ ước của bạn với hàng ngàn cầu thủ, 
+                        bao gồm các huyền thoại bóng đá và các ngôi sao hiện tại. 
+                        Tham gia các giải đấu và thử thách để nhận phần thưởng độc quyền.
+                    </p>
+                    <div class="slide-features">
+                        <span class="slide-feature">Cầu thủ huyền thoại</span>
+                        <span class="slide-feature">Chế độ FUT Champions</span>
+                        <span class="slide-feature">Squad Battles</span>
+                    </div>
+                    <button class="pre-order">Xem chi tiết</button>
+                </div>
+                
+                <div class="slide">
+                    <div class="slide-image">
+                        <div class="slide-image-placeholder">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <h3 class="slide-title">SỰ NGHIỆP CẦU THỦ</h3>
+                    <p class="slide-content">
+                        Viết nên câu chuyện của riêng bạn từ một tài năng trẻ đến huyền thoại bóng đá 
+                        với hệ thống phát triển nhân vật hoàn toàn mới. Đưa ra quyết định ảnh hưởng đến sự nghiệp của bạn.
+                    </p>
+                    <div class="slide-features">
+                        <span class="slide-feature">Chế độ cầu thủ</span>
+                        <span class="slide-feature">Phát triển nhân vật</span>
+                        <span class="slide-feature">Quan hệ với HLV</span>
+                    </div>
+                    <button class="pre-order">Tìm hiểu thêm</button>
+                </div>
+                
+                <div class="slide">
+                    <div class="slide-image">
+                        <div class="slide-image-placeholder">
+                            <i class="fas fa-chess-king"></i>
+                        </div>
+                    </div>
+                    <h3 class="slide-title">SỰ NGHIỆP HUẤN LUYỆN VIÊN</h3>
+                    <p class="slide-content">
+                        Quản lý câu lạc bộ mơ ước của bạn từ chiến thuật đến chuyển nhượng. 
+                        Đưa ra các quyết định quan trọng và dẫn dắt đội bóng đến vinh quang.
+                    </p>
+                    <div class="slide-features">
+                        <span class="slide-feature">Quản lý câu lạc bộ</span>
+                        <span class="slide-feature">Chiến thuật nâng cao</span>
+                        <span class="slide-feature">Chuyển nhượng cầu thủ</span>
+                    </div>
+                    <button class="pre-order">Khám phá ngay</button>
+                </div>
+                
+                <div class="slide">
+                    <div class="slide-image">
+                        <div class="slide-image-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <h3 class="slide-title">VOLTA FOOTBALL</h3>
+                    <p class="slide-content">
+                        Trở lại với trải nghiệm bóng đá đường phố đích thực. 
+                        Tạo avatar riêng, thể hiện phong cách và tham gia các sự kiện toàn cầu.
+                    </p>
+                    <div class="slide-features">
+                        <span class="slide-feature">Bóng đá đường phố</span>
+                        <span class="slide-feature">Tùy chỉnh avatar</span>
+                        <span class="slide-feature">Sự kiện toàn cầu</span>
+                    </div>
+                    <button class="pre-order">Tìm hiểu thêm</button>
+                </div>
+                
+                <div class="slide">
+                    <div class="slide-image">
+                        <div class="slide-image-placeholder">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                    <h3 class="slide-title">GIẢI ĐẤU CHÂU ÂU</h3>
+                    <p class="slide-content">
+                        Trải nghiệm tất cả các giải đấu hàng đầu châu Âu với đầy đủ bản quyền. 
+                        Từ Champions League đến Premier League, La Liga và nhiều hơn nữa.
+                    </p>
+                    <div class="slide-features">
+                        <span class="slide-feature">Champions League</span>
+                        <span class="slide-feature">Premier League</span>
+                        <span class="slide-feature">La Liga</span>
+                    </div>
+                    <button class="pre-order">Xem chi tiết</button>
+                </div>
+                
+                <div class="slide">
+                    <div class="slide-image">
+                        <div class="slide-image-placeholder">
+                            <i class="fas fa-stars"></i>
+                        </div>
+                    </div>
+                    <h3 class="slide-title">CROSS-PLAY</h3>
+                    <p class="slide-content">
+                        Chơi với bạn bệ trên mọi nền tảng. Tính năng cross-play hoàn toàn mới 
+                        cho phép bạn kết nối và thi đấu với cộng đồng game thủ toàn cầu.
+                    </p>
+                    <div class="slide-features">
+                        <span class="slide-feature">Đa nền tảng</span>
+                        <span class="slide-feature">Kết nối bạn bè</span>
+                        <span class="slide-feature">Cộng đồng toàn cầu</span>
+                    </div>
+                    <button class="pre-order">Khám phá ngay</button>
+                </div>
+            </div>
+            
+            <div class="slider-arrow prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="slider-arrow next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            
+            <div class="slider-nav">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Pre-order Section with Image -->
+    <section class="preorder-section">
+        <div class="preorder-container">
+            <div class="preorder-image">
+                <img src="Screenshot 2025-08-09 203449.png" alt="EA SPORTS FC 26 Ultimate Edition">
+            </div>
+            <div class="preorder-content">
+                <h2 class="preorder-heading">ĐẶT TRƯỚC NGAY</h2>
+                <p class="preorder-text">
+                    Đừng bỏ lỡ cơ hội sở hữu bản Ultimate Edition với nhiều ưu đãi độc quyền. 
+                    Nhận ngay 4600 Điểm FC, truy cập sớm 7 ngày và nhiều phần thưởng giá trị khác.
+                </p>
+                <a href="#" class="preorder-button">Đặt Trước Ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="ultimate-edition">
+        <div class="edition-content">
+            <h2 class="edition-title">ULTIMATE EDITION</h2>
+            <p class="edition-description">
+                Nâng tầm câu lạc bộ của bạn với lối chơi mạnh mẽ hơn. Cùng với câu lạc bộ của bạn, một trong những đội thường xuyên giành chiến thắng trong một đội hình đầy đủ và sân đấu hoàn chỉnh.
+            </p>
+            <button class="pre-order">Đặt Bản Ultimate Edition</button>
+        </div>
+    </section>
+
+    <section class="social-section">
+        <h3 class="social-title">Kết nối với chúng tôi</h3>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitch"></i></a>
+        </div>
+    </section>
+
+    <section class="policy-section">
+        <div class="policy-container">
+            <h2 class="policy-title">Tổng Quan & Điều Khoản</h2>
+            <div class="policy-content">
+                <p class="policy-text">
+                    Với đơn đặt hàng trước cho Nintendo Switch, Nintendo Switch 2 và các phiên bản vật lý của EA SPORTS FC 26 không bao gồm Nội dung EA SPORTS FC 25. Các điều khoản và hạn chế khác được áp dụng. Xem chi tiết tại <a href="#" style="color: #00ff85;">ea.com/terms</a>.
+                </p>
+                
+                <div class="policy-note">
+                    <p>
+                        Bạn phải hoàn thành các bước để có được quyền phát FC Points ban đầu trước ngày 15 tháng 6 năm 2026 để nhận được tất cả 4.500 FC Points (cho Nintendo Switch và Nintendo Switch 2) hoặc 4.600 FC Points (cho tất cả các nền tảng khác). Nếu hoàn thành sau ngày 15 tháng 9 năm 2026, bạn sẽ không nhận được bất kỳ Điểm FC nào.
+                    </p>
+                </div>
+                
+                <div class="policy-divider"></div>
+                
+                <h3 style="color: #00ff85; margin-bottom: 15px;">Chính Sách & Điều Khoản</h3>
+                <ul class="policy-list">
+                    <li>Pháp lý & Quyền riêng tư</li>
+                    <li>Trách nhiệm xã hội của doanh nghiệp</li>
+                    <li>Cập nhật dịch vụ trực tuyến</li>
+                </ul>
+                
+                <p class="policy-text">
+                    Bất kỳ sản phẩm kỹ thuật số nào được kích hoạt trên một số nền tảng nhất định chỉ xem Điều khoản bán hàng để biết chi tiết áp dụng. Giá có thể thay đổi tùy theo khu vực và nền tảng.
+                </p>
+                
+                <p class="policy-text" style="margin-top: 25px; font-size: 14px; color: #999;">
+                    © 2025 Electronic Arts Inc. EA, EA SPORTS, và biểu tượng EA SPORTS là các nhãn hiệu của Electronic Arts Inc. Nintendo là nhãn hiệu của Nintendo. Tất cả các nhãn hiệu khác là tài sản của chủ sở hữu tương ứng của họ.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Chính sách bảo mật</a>
+                <a href="#" class="footer-link">Điều khoản dịch vụ</a>
+                <a href="#" class="footer-link">Trợ giúp</a>
+                <a href="#" class="footer-link">Việc làm</a>
+                <a href="#" class="footer-link">Giới thiệu</a>
+                <a href="#" class="footer-link">Liên hệ</a>
+            </div>
+            <p class="copyright">© 2025 Electronic Arts Inc. EA, EA SPORTS, và biểu tượng EA SPORTS là các nhãn hiệu của Electronic Arts Inc.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            const prevBtn = document.querySelector('.slider-arrow.prev');
+            const nextBtn = document.querySelector('.slider-arrow.next');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Function to update slider position
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update active dot
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Next slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+            
+            // Go to specific slide
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
+            });
+            
+            // Event listeners for arrows
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Auto slide every 5 seconds
+            setInterval(nextSlide, 5000);
+        });
+
+        // Add animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.benefit-card, .news-card, .slide');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

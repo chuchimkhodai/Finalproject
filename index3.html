@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EA SPORTS FC™ 26 Forums</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ea-blue: #005EB8;
+            --ea-dark: #1E1E1E;
+            --ea-light: #F2F2F2;
+            --ea-gray: #6C757D;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .ea-logo {
+            color: var(--ea-blue);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .main-container {
+            margin-top: 20px;
+        }
+        
+        .sidebar {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .sidebar-title {
+            font-weight: bold;
+            color: var(--ea-blue);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .content-area {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        
+        .forum-thread {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        
+        .thread-title {
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .thread-title:hover {
+            color: var(--ea-blue);
+            text-decoration: underline;
+        }
+        
+        .thread-meta {
+            color: var(--ea-gray);
+            font-size: 0.9rem;
+        }
+        
+        .thread-stats {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--ea-gray);
+        }
+        
+        .user-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background-color: #e9ecef;
+            color: #495057;
+        }
+        
+        .footer {
+            background-color: var(--ea-dark);
+            color: white;
+            padding: 30px 0;
+            margin-top: 30px;
+        }
+        
+        .footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .nav-link {
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--ea-blue);
+        }
+        
+        .search-box {
+            background-color: #f8f9fa;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+        }
+        
+        .btn-ea {
+            background-color: var(--ea-blue);
+            color: white;
+            border-radius: 20px;
+            padding: 8px 20px;
+        }
+        
+        .btn-ea:hover {
+            background-color: #004c94;
+            color: white;
+        }
+        
+        /* Modal styles */
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }
+        
+        .modal-header {
+            background-color: var(--ea-blue);
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .btn-close {
+            filter: invert(1);
+        }
+        
+        .form-control, .form-select {
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .form-label {
+            font-weight: 500;
+        }
+        
+        .thread-content {
+            min-height: 200px;
+        }
+        
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <span class="ea-logo me-4">EA</span>
+                    <nav class="d-none d-md-flex">
+                        <a href="#" class="nav-link me-3">Browse Games</a>
+                        <a href="#" class="nav-link me-3">EA App</a>
+                        <a href="#" class="nav-link me-3">Help Center</a>
+                        <a href="#" class="nav-link me-3">About</a>
+                        <a href="#" class="nav-link me-3">Accessibility</a>
+                        <a href="#" class="nav-link">Jobs</a>
+                    </nav>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="input-group me-3 d-none d-md-flex" style="width: 250px;">
+                        <input type="text" class="form-control search-box" placeholder="Search forums...">
+                        <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button class="btn btn-ea">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container main-container">
+        <div class="row">
+            <!-- Sidebar Left -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">EA SPORTS FC™ 26 Game Info Hub</div>
+                        <p class="small">Get all the information you need about EA SPORTS FC™ 26 and...</p>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">FC 26 General Discussion</div>
+                        <p class="small">Join the conversation about EA SPORTS FC™ 26 in the community forums.</p>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Recent Content</div>
+                        <ul class="list-unstyled small">
+                            <li><a href="#" class="text-decoration-none">Host Direct</a></li>
+                            <li><a href="#" class="text-decoration-none">Newest Topics</a></li>
+                            <li><a href="#" class="text-decoration-none">Host Vessel</a></li>
+                            <li><a href="#" class="text-decoration-none">Host Register</a></li>
+                            <li><a href="#" class="text-decoration-none">Host Labs</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">About FC 26</div>
+                        <p class="small">Talk with us about your application in EA SPORTS FC™ 26 in our community forums.</p>
+                        <p class="small">Latest Activity is invited up!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Area -->
+            <div class="col-lg-9">
+                <div class="content-area">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4>FC 26 General Discussion</h4>
+                        <button class="btn btn-ea" data-bs-toggle="modal" data-bs-target="#newThreadModal"><i class="fas fa-plus me-2"></i>New Thread</button>
+                    </div>
+                    
+                    <!-- Thread List -->
+                    <div class="forum-thread">
+                        <div class="row">
+                            <div class="col-8">
+                                <a href="#" class="thread-title">Four manual players</a>
+                                <div class="thread-meta mt-1">
+                                    Posted by <span class="fw-medium">Sexer</span> 
+                                    <span class="user-badge ms-2">Seasoned Rookie</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="d-flex justify-content-end">
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">12</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">1</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="thread-stats">
+                                        <span class="stat-number">0</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="forum-thread">
+                        <div class="row">
+                            <div class="col-8">
+                                <a href="#" class="thread-title">Pre-Season rewards</a>
+                                <div class="thread-meta mt-1">
+                                    Posted by <span class="fw-medium">EA_Pulse</span> 
+                                    <span class="user-badge ms-2">Community Manager</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="d-flex justify-content-end">
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">82</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">0</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="thread-stats">
+                                        <span class="stat-number">0</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="forum-thread">
+                        <div class="row">
+                            <div class="col-8">
+                                <a href="#" class="thread-title">FC Points Transfer</a>
+                                <div class="thread-meta mt-1">
+                                    Posted by <span class="fw-medium">GStriper</span> 
+                                    <span class="user-badge ms-2">New Novice</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="d-flex justify-content-end">
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">11K</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">0</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="thread-stats">
+                                        <span class="stat-number">35</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="forum-thread">
+                        <div class="row">
+                            <div class="col-8">
+                                <a href="#" class="thread-title">formations - adjustable positions</a>
+                                <div class="thread-meta mt-1">
+                                    Posted by <span class="fw-medium">mubricial20</span> 
+                                    <span class="user-badge ms-2">New Novice</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="d-flex justify-content-end">
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">12</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">1</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="thread-stats">
+                                        <span class="stat-number">0</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="forum-thread">
+                        <div class="row">
+                            <div class="col-8">
+                                <a href="#" class="thread-title">FC 25 xbox Pre-Season Rewards Carry Over to FC 26 PSS</a>
+                                <div class="thread-meta mt-1">
+                                    Posted by <span class="fw-medium">JuiceMaster</span> 
+                                    <span class="user-badge ms-2">Seasoned Newcomer</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="d-flex justify-content-end">
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">50</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">0</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="thread-stats">
+                                        <span class="stat-number">1</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="forum-thread">
+                        <div class="row">
+                            <div class="col-8">
+                                <a href="#" class="thread-title">STILL NO GRIP SOCKS</a>
+                                <div class="thread-meta mt-1">
+                                    Posted by <span class="fw-medium">JuciSnake97</span> 
+                                    <span class="user-badge ms-2">Seasoned Novice</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="d-flex justify-content-end">
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">309</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">6</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="thread-stats">
+                                        <span class="stat-number">9</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="forum-thread">
+                        <div class="row">
+                            <div class="col-8">
+                                <a href="#" class="thread-title">Is it true a server in South Korea in time for the launch of FC26?</a>
+                                <div class="thread-meta mt-1">
+                                    Posted by <span class="fw-medium">Kucca</span> 
+                                    <span class="user-badge ms-2">Newcomer</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="d-flex justify-content-end">
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">52</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="thread-stats me-3">
+                                        <span class="stat-number">0</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="thread-stats">
+                                        <span class="stat-number">0</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center mt-4">
+                        <button class="btn btn-outline-primary">Show More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h5>Electronic Arts</h5>
+                    <p>Join the conversation about EA SPORTS FC™ 26 in our community forums.</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">User Agreement</a></li>
+                        <li><a href="#">Privacy & Cookie Policy</a></li>
+                        <li><a href="#">Online Service Updates</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Connect</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fab fa-youtube me-2"></i>YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-facebook me-2"></i>Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <hr style="border-color: rgba(255,255,255,0.1);">
+                    <p class="text-center mb-0">© 2025 Electronic Arts Inc.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- New Thread Modal -->
+    <div class="modal fade" id="newThreadModal" tabindex="-1" aria-labelledby="newThreadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newThreadModalLabel">Create New Thread</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newThreadForm">
+                        <div class="mb-3">
+                            <label for="threadTitle" class="form-label">Thread Title</label>
+                            <input type="text" class="form-control" id="threadTitle" placeholder="Enter your thread title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="threadCategory" class="form-label">Category</label>
+                            <select class="form-select" id="threadCategory" required>
+                                <option value="" selected disabled>Select a category</option>
+                                <option value="general">FC 26 General Discussion</option>
+                                <option value="gameplay">Gameplay Discussion</option>
+                                <option value="technical">Technical Issues</option>
+                                <option value="suggestions">Suggestions & Feedback</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="threadContent" class="form-label">Thread Content</label>
+                            <textarea class="form-control thread-content" id="threadContent" rows="6" placeholder="Write your thread content here..." required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="threadTags" class="form-label">Tags (comma separated)</label>
+                            <input type="text" class="form-control" id="threadTags" placeholder="e.g., gameplay, bug, suggestion">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-ea" id="submitThreadBtn">Post Thread</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true" id="successToast">
+        <div class="d-flex">
+            <div class="toast-body">
+                <i class="fas fa-check-circle me-2"></i> Your thread has been posted successfully!
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get modal and form elements
+            const newThreadModal = new bootstrap.Modal(document.getElementById('newThreadModal'));
+            const newThreadForm = document.getElementById('newThreadForm');
+            const submitThreadBtn = document.getElementById('submitThreadBtn');
+            const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+            
+            // Handle form submission
+            submitThreadBtn.addEventListener('click', function() {
+                // Get form values
+                const title = document.getElementById('threadTitle').value;
+                const category = document.getElementById('threadCategory').value;
+                const content = document.getElementById('threadContent').value;
+                const tags = document.getElementById('threadTags').value;
+                
+                // Basic validation
+                if (!title || !category || !content) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // In a real application, you would send this data to a server
+                // For this demo, we'll just simulate a successful post
+                
+                // Simulate API call delay
+                submitThreadBtn.disabled = true;
+                submitThreadBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Posting...';
+                
+                setTimeout(function() {
+                    // Show success message
+                    successToast.show();
+                    
+                    // Reset form
+                    newThreadForm.reset();
+                    
+                    // Close modal
+                    newThreadModal.hide();
+                    
+                    // Reset button state
+                    submitThreadBtn.disabled = false;
+                    submitThreadBtn.innerHTML = 'Post Thread';
+                    
+                    // In a real application, you would update the thread list here
+                    // For this demo, we'll just log the data
+                    console.log('New thread created:');
+                    console.log('Title:', title);
+                    console.log('Category:', category);
+                    console.log('Content:', content);
+                    console.log('Tags:', tags);
+                    
+                }, 1500);
+            });
+            
+            // Clear form when modal is closed
+            document.getElementById('newThreadModal').addEventListener('hidden.bs.modal', function () {
+                newThreadForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
