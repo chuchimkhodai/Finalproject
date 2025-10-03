@@ -371,6 +371,7 @@
             font-weight: 800;
             margin-bottom: 16px;
             background: linear-gradient(90deg, #00ff85, #05c3ff);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
@@ -1066,6 +1067,7 @@
             font-weight: 800;
             margin-bottom: 20px;
             background: linear-gradient(90deg, #00ff85, #05c3ff);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
@@ -1308,6 +1310,336 @@
                 font-size: 14px;
             }
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #111 0%, #000 100%);
+            padding: 40px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+            border: 1px solid #00ff85;
+            box-shadow: 0 20px 60px rgba(0, 255, 133, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #00ff85;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #00ff85;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00ff85;
+            box-shadow: 0 0 0 3px rgba(0, 255, 133, 0.1);
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 14px;
+            background-color: #00ff85;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .form-button:hover {
+            background-color: #00e077;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 133, 0.3);
+        }
+
+        .form-error {
+            color: #ff4444;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .form-switch {
+            text-align: center;
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .form-switch a {
+            color: #00ff85;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .form-switch a:hover {
+            text-decoration: underline;
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 80px 32px;
+            background: linear-gradient(135deg, #001a0d 0%, #000 100%);
+            position: relative;
+        }
+
+        .community-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 133, 0.05) 0%, transparent 50%);
+        }
+
+        .community-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .community-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00ff85;
+            text-transform: uppercase;
+        }
+
+        .community-subtitle {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+
+        .comment-form-container {
+            background-color: #111;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid #222;
+        }
+
+        .comment-form-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #00ff85;
+        }
+
+        .comment-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            resize: vertical;
+            font-family: 'Inter', Arial, sans-serif;
+            transition: all 0.3s;
+        }
+
+        .comment-textarea:focus {
+            outline: none;
+            border-color: #00ff85;
+            box-shadow: 0 0 0 3px rgba(0, 255, 133, 0.1);
+        }
+
+        .comment-submit {
+            margin-top: 15px;
+            padding: 12px 30px;
+            background-color: #00ff85;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .comment-submit:hover {
+            background-color: #00e077;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 133, 0.3);
+        }
+
+        .comment-submit:disabled {
+            background-color: #333;
+            color: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .comment-card {
+            background-color: #111;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #222;
+            transition: all 0.3s;
+        }
+
+        .comment-card:hover {
+            border-color: #00ff85;
+            box-shadow: 0 5px 15px rgba(0, 255, 133, 0.1);
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 12px;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00ff85, #05c3ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .comment-info {
+            flex: 1;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: #00ff85;
+            font-size: 16px;
+        }
+
+        .comment-time {
+            color: #666;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .comment-text {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .login-prompt {
+            text-align: center;
+            padding: 40px;
+            background-color: #111;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+
+        .login-prompt-text {
+            color: #ccc;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .login-prompt-button {
+            padding: 12px 30px;
+            background-color: #00ff85;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .login-prompt-button:hover {
+            background-color: #00e077;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 133, 0.3);
+        }
+
+        .no-comments {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -1339,8 +1671,9 @@
                     <a href="#" class="nav-link">Tin tức</a>
                 </li>
                 <li class="nav-item has-dropdown">
-                    <a href="#" class="nav-link">Cộng đồng</a>
+                    <a href="#community" class="nav-link">Cộng đồng</a>
                     <div class="dropdown-menu">
+                        <a href="#community" class="dropdown-item">Bảng tin cộng đồng</a>
                         <a href="#" class="dropdown-item">Trợ giúp EA</a>
                         <a href="#" class="dropdown-item">Answers HQ</a>
                         <a href="#" class="dropdown-item">Diễn đàn EA</a>
@@ -1353,13 +1686,15 @@
         </nav>
         
         <div class="user-actions">
-            <div class="user-icon">
+            <div class="user-icon" id="userIcon">
                 <i class="fas fa-user"></i>
-                <div class="user-dropdown">
-                    <a href="#" class="user-dropdown-item">Đăng nhập</a>
-                    <a href="#" class="user-dropdown-item">Tạo tài khoản</a>
-                    <a href="#" class="user-dropdown-item">Cài đặt tài khoản</a>
-                    <a href="#" class="user-dropdown-item">Trợ giúp</a>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#" class="user-dropdown-item" id="loginBtn">Đăng nhập</a>
+                    <a href="#" class="user-dropdown-item" id="registerBtn">Tạo tài khoản</a>
+                    <div id="loggedInMenu" style="display: none;">
+                        <div class="user-dropdown-item" id="userEmail" style="color: #00ff85; cursor: default;"></div>
+                        <a href="#" class="user-dropdown-item" id="logoutBtn">Đăng xuất</a>
+                    </div>
                 </div>
             </div>
             <div class="pre-order-container">
@@ -1728,6 +2063,22 @@
         </div>
     </section>
 
+    <!-- Community Section -->
+    <section class="community-section" id="community">
+        <div class="community-container">
+            <h2 class="community-title">Cộng Đồng FC 26</h2>
+            <p class="community-subtitle">Chia sẻ suy nghĩ, kinh nghiệm và kết nối với cộng đồng game thủ toàn cầu</p>
+            
+            <div id="commentFormArea">
+                <!-- Form sẽ được hiển thị nếu đã đăng nhập -->
+            </div>
+
+            <div class="comments-list" id="commentsList">
+                <!-- Danh sách bình luận sẽ được load từ Firebase -->
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -1742,9 +2093,73 @@
         </div>
     </footer>
 
-    <script>
-        // Slider functionality
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeLoginModal">&times;</span>
+            <h2 class="modal-title">Đăng Nhập</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-input" placeholder="Nhập email của bạn" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="loginPassword">Mật khẩu</label>
+                    <input type="password" id="loginPassword" class="form-input" placeholder="Nhập mật khẩu" required>
+                </div>
+                <div id="loginError" class="form-error"></div>
+                <button type="submit" class="form-button">Đăng Nhập</button>
+                <div class="form-switch">
+                    Chưa có tài khoản? <a id="switchToRegister">Đăng ký ngay</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeRegisterModal">&times;</span>
+            <h2 class="modal-title">Đăng Ký</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label class="form-label" for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-input" placeholder="Nhập email của bạn" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="registerPassword">Mật khẩu</label>
+                    <input type="password" id="registerPassword" class="form-input" placeholder="Nhập mật khẩu (tối thiểu 6 ký tự)" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="registerPasswordConfirm">Xác nhận mật khẩu</label>
+                    <input type="password" id="registerPasswordConfirm" class="form-input" placeholder="Nhập lại mật khẩu" required>
+                </div>
+                <div id="registerError" class="form-error"></div>
+                <button type="submit" class="form-button">Đăng Ký</button>
+                <div class="form-switch">
+                    Đã có tài khoản? <a id="switchToLogin">Đăng nhập</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import Firebase modules
+        import { auth, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from './firebaseconfig.js';
+
+        // Global variables
+        let currentUser = null;
+
+        // ==================== INITIALIZE ON DOM LOAD ====================
         document.addEventListener('DOMContentLoaded', function() {
+            initSlider();
+            initAnimations();
+            initAuthUI();
+            loadComments();
+        });
+
+        // Slider functionality
+        function initSlider() {
             const slider = document.querySelector('.slider');
             const slides = document.querySelectorAll('.slide');
             const dots = document.querySelectorAll('.slider-dot');
@@ -1794,10 +2209,10 @@
             
             // Auto slide every 5 seconds
             setInterval(nextSlide, 5000);
-        });
+        }
 
         // Add animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
+        function initAnimations() {
             const animatedElements = document.querySelectorAll('.benefit-card, .news-card, .slide');
             
             const observer = new IntersectionObserver((entries) => {
@@ -1815,7 +2230,305 @@
                 element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(element);
             });
-        });
+        }
+
+        // ==================== AUTHENTICATION ====================
+        
+        function initAuthUI() {
+            // Modal elements
+            const loginModal = document.getElementById('loginModal');
+            const registerModal = document.getElementById('registerModal');
+            const loginBtn = document.getElementById('loginBtn');
+            const registerBtn = document.getElementById('registerBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const closeLoginModal = document.getElementById('closeLoginModal');
+            const closeRegisterModal = document.getElementById('closeRegisterModal');
+            const switchToRegister = document.getElementById('switchToRegister');
+            const switchToLogin = document.getElementById('switchToLogin');
+
+            // Open/Close modals
+            loginBtn?.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Login button clicked'); // Debug
+                loginModal.classList.add('active');
+            });
+
+            registerBtn?.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Register button clicked'); // Debug
+                registerModal.classList.add('active');
+            });
+
+            closeLoginModal?.addEventListener('click', () => {
+                loginModal.classList.remove('active');
+                document.getElementById('loginError').textContent = '';
+            });
+
+            closeRegisterModal?.addEventListener('click', () => {
+                registerModal.classList.remove('active');
+                document.getElementById('registerError').textContent = '';
+            });
+
+            switchToRegister?.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginModal.classList.remove('active');
+                registerModal.classList.add('active');
+            });
+
+            switchToLogin?.addEventListener('click', (e) => {
+                e.preventDefault();
+                registerModal.classList.remove('active');
+                loginModal.classList.add('active');
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === loginModal) {
+                    loginModal.classList.remove('active');
+                }
+                if (e.target === registerModal) {
+                    registerModal.classList.remove('active');
+                }
+            });
+
+            // Login form
+            document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                const errorDiv = document.getElementById('loginError');
+
+                try {
+                    await signInWithEmailAndPassword(auth, email, password);
+                    loginModal.classList.remove('active');
+                    document.getElementById('loginForm').reset();
+                    errorDiv.textContent = '';
+                } catch (error) {
+                    console.error('Login error:', error);
+                    errorDiv.textContent = getErrorMessage(error.code);
+                }
+            });
+
+            // Register form
+            document.getElementById('registerForm')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('registerEmail').value;
+                const password = document.getElementById('registerPassword').value;
+                const passwordConfirm = document.getElementById('registerPasswordConfirm').value;
+                const errorDiv = document.getElementById('registerError');
+
+                if (password !== passwordConfirm) {
+                    errorDiv.textContent = 'Mật khẩu không khớp!';
+                    return;
+                }
+
+                if (password.length < 6) {
+                    errorDiv.textContent = 'Mật khẩu phải có ít nhất 6 ký tự!';
+                    return;
+                }
+
+                try {
+                    await createUserWithEmailAndPassword(auth, email, password);
+                    registerModal.classList.remove('active');
+                    document.getElementById('registerForm').reset();
+                    errorDiv.textContent = '';
+                } catch (error) {
+                    console.error('Register error:', error);
+                    errorDiv.textContent = getErrorMessage(error.code);
+                }
+            });
+
+            // Logout
+            logoutBtn?.addEventListener('click', async (e) => {
+                e.preventDefault();
+                try {
+                    await signOut(auth);
+                } catch (error) {
+                    console.error('Logout error:', error);
+                }
+            });
+
+            // Auth state observer
+            onAuthStateChanged(auth, (user) => {
+                currentUser = user;
+                updateUIForUser(user);
+                updateCommunitySection(user);
+                if (user) {
+                    loadComments();
+                }
+            });
+        }
+
+        function updateUIForUser(user) {
+            const loginBtnEl = document.getElementById('loginBtn');
+            const registerBtnEl = document.getElementById('registerBtn');
+            const loggedInMenu = document.getElementById('loggedInMenu');
+            const userEmailEl = document.getElementById('userEmail');
+
+            if (user) {
+                loginBtnEl.style.display = 'none';
+                registerBtnEl.style.display = 'none';
+                loggedInMenu.style.display = 'block';
+                userEmailEl.textContent = user.email;
+            } else {
+                loginBtnEl.style.display = 'block';
+                registerBtnEl.style.display = 'block';
+                loggedInMenu.style.display = 'none';
+            }
+        }
+
+        function getErrorMessage(errorCode) {
+            switch (errorCode) {
+                case 'auth/email-already-in-use':
+                    return 'Email này đã được sử dụng!';
+                case 'auth/invalid-email':
+                    return 'Email không hợp lệ!';
+                case 'auth/weak-password':
+                    return 'Mật khẩu quá yếu!';
+                case 'auth/user-not-found':
+                    return 'Không tìm thấy tài khoản!';
+                case 'auth/wrong-password':
+                    return 'Mật khẩu không đúng!';
+                case 'auth/invalid-credential':
+                    return 'Email hoặc mật khẩu không đúng!';
+                default:
+                    return 'Đã xảy ra lỗi. Vui lòng thử lại!';
+            }
+        }
+
+        // ==================== COMMUNITY SECTION ====================
+
+        function updateCommunitySection(user) {
+            const commentFormArea = document.getElementById('commentFormArea');
+            
+            if (user) {
+                commentFormArea.innerHTML = `
+                    <div class="comment-form-container">
+                        <h3 class="comment-form-title">Chia sẻ suy nghĩ của bạn</h3>
+                        <form id="commentForm">
+                            <textarea 
+                                id="commentText" 
+                                class="comment-textarea" 
+                                placeholder="Viết bình luận của bạn về EA SPORTS FC 26..."
+                                required
+                            ></textarea>
+                            <button type="submit" class="comment-submit">Đăng bình luận</button>
+                        </form>
+                    </div>
+                `;
+
+                // Add comment form handler
+                document.getElementById('commentForm')?.addEventListener('submit', handleCommentSubmit);
+            } else {
+                commentFormArea.innerHTML = `
+                    <div class="login-prompt">
+                        <p class="login-prompt-text">Đăng nhập để tham gia thảo luận cùng cộng đồng</p>
+                        <button class="login-prompt-button" id="communityLoginBtn">Đăng nhập ngay</button>
+                    </div>
+                `;
+
+                document.getElementById('communityLoginBtn')?.addEventListener('click', () => {
+                    loginModal.classList.add('active');
+                });
+            }
+        }
+
+        async function handleCommentSubmit(e) {
+            e.preventDefault();
+            const commentText = document.getElementById('commentText').value.trim();
+            
+            if (!commentText || !currentUser) return;
+
+            try {
+                await addDoc(collection(db, 'comments'), {
+                    text: commentText,
+                    userEmail: currentUser.email,
+                    timestamp: serverTimestamp(),
+                    userId: currentUser.uid
+                });
+
+                document.getElementById('commentText').value = '';
+                loadComments();
+            } catch (error) {
+                console.error('Error adding comment:', error);
+                alert('Không thể đăng bình luận. Vui lòng thử lại!');
+            }
+        }
+
+        async function loadComments() {
+            const commentsList = document.getElementById('commentsList');
+            
+            try {
+                const q = query(collection(db, 'comments'), orderBy('timestamp', 'desc'));
+                const querySnapshot = await getDocs(q);
+                
+                if (querySnapshot.empty) {
+                    commentsList.innerHTML = '<div class="no-comments">Chưa có bình luận nào. Hãy là người đầu tiên!</div>';
+                    return;
+                }
+
+                commentsList.innerHTML = '';
+                querySnapshot.forEach((doc) => {
+                    const comment = doc.data();
+                    const commentEl = createCommentElement(comment);
+                    commentsList.appendChild(commentEl);
+                });
+            } catch (error) {
+                console.error('Error loading comments:', error);
+                commentsList.innerHTML = '<div class="no-comments">Không thể tải bình luận. Vui lòng thử lại!</div>';
+            }
+        }
+
+        function createCommentElement(comment) {
+            const div = document.createElement('div');
+            div.className = 'comment-card';
+            
+            const userInitial = comment.userEmail ? comment.userEmail.charAt(0).toUpperCase() : 'U';
+            const timeString = comment.timestamp ? formatDate(comment.timestamp.toDate()) : 'Vừa xong';
+            
+            div.innerHTML = `
+                <div class="comment-header">
+                    <div class="comment-avatar">${userInitial}</div>
+                    <div class="comment-info">
+                        <div class="comment-author">${maskEmail(comment.userEmail)}</div>
+                        <div class="comment-time">${timeString}</div>
+                    </div>
+                </div>
+                <p class="comment-text">${escapeHtml(comment.text)}</p>
+            `;
+            
+            return div;
+        }
+
+        function maskEmail(email) {
+            if (!email) return 'Anonymous';
+            const [username, domain] = email.split('@');
+            if (username.length <= 3) {
+                return email;
+            }
+            const masked = username.substring(0, 3) + '***@' + domain;
+            return masked;
+        }
+
+        function formatDate(date) {
+            const now = new Date();
+            const diff = now - date;
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+
+            if (days > 0) return `${days} ngày trước`;
+            if (hours > 0) return `${hours} giờ trước`;
+            if (minutes > 0) return `${minutes} phút trước`;
+            return 'Vừa xong';
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
     </script>
 </body>
 </html>
